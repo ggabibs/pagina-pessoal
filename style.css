@@ -1,9 +1,8 @@
 /* Definições de cores e fontes */
 :root {
     --primary-pink: #ff69b4; /* Cor rosa principal (Hot Pink) */
-    --secondary-pink: #f5c4d6; /* Rosa mais claro para fundo/bordas */
+    --secondary-pink: #f5c4d6; /* Rosa mais claro para bordas */
     --text-color: #333;
-    --background-color: #f7f7f7;
     --font-family: 'Poppins', sans-serif;
 }
 
@@ -17,7 +16,7 @@
 body {
     font-family: var(--font-family);
     color: var(--text-color);
-    background-color: white; /* Fundo branco ou claro */
+    background-color: white; /* **CORRIGIDO: Fundo totalmente branco** */
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -26,22 +25,16 @@ body {
 
 .container {
     width: 100%;
-    max-width: 900px; /* Largura máxima para centralizar o conteúdo */
-    background: linear-gradient(to right, var(--secondary-pink) 300px, white 300px); /* Simula a faixa rosa lateral */
+    max-width: 950px; 
+    background-color: white; 
     padding: 30px 20px;
-    display: grid;
-    grid-template-areas:
-        "header"
-        "gallery"
-        "social";
-    gap: 20px;
-    /* Estilos para a borda arredondada na imagem */
-    border-radius: 10px; 
+    /* Usando Flexbox ou Grid para o layout principal */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Estilo do cabeçalho com a foto e o nome */
 .profile-header {
-    grid-area: header;
     display: flex;
     align-items: center;
     gap: 40px;
@@ -55,17 +48,16 @@ body {
     border: 5px solid var(--primary-pink); /* Borda rosa */
     border-radius: 50%;
     overflow: hidden;
-    background-color: white; /* Para garantir que o fundo seja branco */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: white; 
+    /* Esta borda dá a impressão da faixa vertical rosa no layout da imagem */
+    box-shadow: 0 0 0 10px white, 0 0 0 15px var(--secondary-pink);
 }
 
 .profile-pic {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%; /* Faz a imagem ser circular dentro da borda */
+    border-radius: 50%; 
 }
 
 .header-content {
@@ -76,9 +68,10 @@ body {
 
 .name {
     color: var(--primary-pink);
-    font-size: 3.5em; /* Fonte grande e impactante */
+    font-size: 3.5em; 
     font-weight: 700;
     margin-bottom: 5px;
+    letter-spacing: 1px; /* Para simular o estilo da fonte */
 }
 
 .welcome-message {
@@ -88,26 +81,31 @@ body {
 
 /* Galeria de fotos */
 .photo-gallery {
-    grid-area: gallery;
     display: flex;
-    justify-content: flex-start; /* Alinhar as fotos à esquerda do nome/mensagem */
+    /* Alinha a galeria com o texto à direita do perfil */
+    justify-content: flex-start; 
     gap: 15px;
-    padding-left: 300px; /* Alinha com a área de conteúdo principal */
-    margin-top: -80px; /* Move a galeria para cima para ficar alinhada horizontalmente */
+    margin-left: 290px; /* Empurra a galeria para a área direita */
+    margin-top: -120px; /* Move para cima para alinhar horizontalmente */
+    margin-bottom: 80px;
 }
 
 .photo-card {
     text-align: center;
-    width: 150px; /* Largura das miniaturas */
-    border: 1px solid #ddd;
+    width: 150px; 
+    height: auto;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     overflow: hidden;
-    background-color: white;
+    /* Cria a borda branca grossa ao redor da foto */
+    padding: 10px;
+    border: 1px solid #ddd;
 }
 
 .photo-card img {
     width: 100%;
-    height: 150px; /* Altura fixa para as miniaturas */
+    height: 100px; /* Altura fixa para as miniaturas (ajuste se precisar) */
     object-fit: cover;
     display: block;
 }
@@ -117,45 +115,41 @@ body {
     color: var(--primary-pink);
     font-weight: 700;
     padding: 5px 0;
-    border-top: 1px solid var(--secondary-pink);
+    font-size: 0.9em;
 }
 
 /* Links de redes sociais */
 .social-links {
-    grid-area: social;
     display: flex;
     justify-content: flex-start;
     gap: 20px;
-    padding-left: 50px; /* Alinha os ícones com o círculo de perfil */
-    margin-top: 80px;
+    margin-left: 50px; /* Alinha os ícones abaixo do círculo de perfil */
+    margin-top: -30px; /* Move levemente para cima */
 }
 
 .social-links a {
     color: var(--primary-pink);
-    font-size: 2.5em;
-    transition: color 0.3s;
+    font-size: 2.2em;
     background-color: white;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid var(--primary-pink);
+    /* Borda dupla para replicar o estilo do ícone na imagem */
+    border: 2px solid var(--primary-pink); 
+    padding: 5px; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .social-links a:hover {
-    color: var(--secondary-pink);
-    border-color: var(--secondary-pink);
+    color: white;
+    background-color: var(--primary-pink);
 }
 
 /* Media Query para telas menores */
-@media (max-width: 768px) {
-    .container {
-        background: white; /* Remove a faixa lateral em telas pequenas */
-        padding: 20px;
-    }
-
+@media (max-width: 850px) {
     .profile-header {
         flex-direction: column;
         gap: 20px;
@@ -164,22 +158,19 @@ body {
     .profile-pic-container {
         width: 150px;
         height: 150px;
+        box-shadow: none; /* Remove a simulação de faixa lateral */
     }
 
-    .name {
-        font-size: 2.5em;
-        text-align: center;
-    }
-
-    .welcome-message {
+    .name, .welcome-message {
         text-align: center;
     }
 
     .photo-gallery {
         flex-direction: column;
         align-items: center;
-        padding-left: 0;
-        margin-top: 20px;
+        margin-left: 0;
+        margin-top: 40px;
+        gap: 20px;
     }
 
     .photo-card {
@@ -189,7 +180,7 @@ body {
 
     .social-links {
         justify-content: center;
-        padding-left: 0;
-        margin-top: 20px;
+        margin-left: 0;
+        margin-top: 40px;
     }
 }
