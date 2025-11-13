@@ -23,7 +23,7 @@ body {
     padding: 20px;
 }
 
-/* --- Cabeçalho e Perfil (Mantido) --- */
+/* --- Cabeçalho e Perfil --- */
 
 .profile-header {
     display: flex;
@@ -70,6 +70,8 @@ body {
     margin-bottom: 15px;
 }
 
+/* --- Ícones das Redes Sociais (Garante que apareçam) --- */
+
 .social-icons {
     display: flex;
     gap: 15px;
@@ -77,37 +79,15 @@ body {
 }
 
 .social-icons a {
-    font-size: 2em;
-    color: var(--main-pink); /* Cor dos ícones */
+    /* CRÍTICO: Define o tamanho e a cor dos ícones do Font Awesome */
+    font-size: 2em; 
+    color: var(--main-pink);
     transition: color 0.3s;
 }
 
 .social-icons a:hover {
     color: #ff85c6;
 }
-/* --- Ícones das Redes Sociais --- */
-
-.social-icons {
-    /* Esta linha é crucial para o alinhamento horizontal */
-    display: flex; 
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.social-icons a {
-    /* Esta propriedade é crucial para dar tamanho aos ícones */
-    font-size: 2em;
-    
-    /* Esta propriedade é crucial para dar cor aos ícones */
-    color: var(--main-pink); 
-    
-    transition: color 0.3s;
-}
-
-.social-icons a:hover {
-    color: #ff85c6; /* Um rosa mais claro no hover */
-}
-
 
 /* --- Seção de Navegação (Amigos, Sobre mim, Família) --- */
 
@@ -126,7 +106,7 @@ body {
     align-items: center;
     width: 180px;
     text-align: center;
-    text-decoration: none; /* Remove sublinhado do link */
+    text-decoration: none;
     color: inherit;
     transition: transform 0.2s;
 }
@@ -161,30 +141,34 @@ body {
     margin-top: 40px;
     border-top: 1px solid var(--light-bg);
     padding-top: 40px;
-    display: none; /* Esconde todas as galerias por padrão */
     opacity: 0;
     transition: opacity 0.5s;
 }
 
+/* ❗ CRÍTICO: Esconde a galeria quando a classe 'hidden' está presente ❗ */
+.gallery.hidden {
+    display: none !important; 
+    opacity: 0;
+}
+
 .gallery.active {
-    display: block; /* A galeria ativa é exibida */
+    display: block; 
     opacity: 1;
 }
 
-/* Fotos das Galerias (Amigos e Família) */
+/* Fotos das Galerias */
 .gallery-content {
     display: grid;
-    /* Ajuste o número de colunas conforme o número de fotos (4 por linha ou mais) */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
     gap: 20px;
-    justify-items: center; /* Centraliza as imagens */
+    justify-items: center;
 }
 
 .gallery-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-radius: 15px; /* Borda arredondada das fotos, como na Imagem 1 */
+    border-radius: 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -201,4 +185,33 @@ body {
     color: var(--main-pink);
     font-size: 2.5em;
     margin-bottom: 20px;
+}
+
+/* --- Media Queries (Responsividade) --- */
+
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .header-content {
+        align-items: center;
+        height: auto;
+    }
+
+    .image-navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .image-card {
+        width: 80%;
+        max-width: 300px;
+    }
 }
