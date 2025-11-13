@@ -1,186 +1,155 @@
-/* Definições de cores e fontes */
+/* Definição de Cores */
 :root {
-    --primary-pink: #ff69b4; /* Cor rosa principal (Hot Pink) */
-    --secondary-pink: #f5c4d6; /* Rosa mais claro para bordas */
-    --text-color: #333;
-    --font-family: 'Poppins', sans-serif;
+    --rosa-claro: #ffe7f0; /* Fundo e Borda clara */
+    --rosa-escuro: #ff3399; /* Destaque, títulos e ícones */
+    --preto: #333333; /* Texto principal */
 }
 
-/* Reset básico e tipografia */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* Estilos Globais */
 body {
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background-color: white; /* **CORRIGIDO: Fundo totalmente branco** */
+    font-family: Arial, sans-serif;
+    background-color: var(--rosa-claro); /* Fundo da página */
+    margin: 0;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    padding: 20px;
+    align-items: center;
     min-height: 100vh;
 }
 
 .container {
+    max-width: 900px;
     width: 100%;
-    max-width: 950px; 
-    background-color: white; 
-    padding: 30px 20px;
-    /* Usando Flexbox ou Grid para o layout principal */
-    display: flex;
-    flex-direction: column;
+    padding: 40px 20px;
+    background-color: #fff; /* Fundo branco da área de conteúdo */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilo do cabeçalho com a foto e o nome */
+/* Seção Principal de Perfil */
 .profile-header {
     display: flex;
     align-items: center;
-    gap: 40px;
-    padding: 20px 0;
+    gap: 40px; /* Espaço entre a foto e o texto */
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rosa-claro); /* Linha divisória sutil */
 }
 
-.profile-pic-container {
-    position: relative;
-    width: 250px; /* Tamanho do círculo da imagem */
-    height: 250px;
-    border: 5px solid var(--primary-pink); /* Borda rosa */
+/* Estilização da Imagem de Perfil */
+.profile-image-container {
+    border: 4px solid var(--rosa-escuro); /* Borda rosa escura */
     border-radius: 50%;
+    width: 150px;
+    height: 150px;
     overflow: hidden;
-    background-color: white; 
-    /* Esta borda dá a impressão da faixa vertical rosa no layout da imagem */
-    box-shadow: 0 0 0 10px white, 0 0 0 15px var(--secondary-pink);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px; /* Simula a borda interna clara */
+    background-color: var(--rosa-claro); /* Cor do preenchimento da borda */
 }
 
-.profile-pic {
+.profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%; 
+    border-radius: 50%;
+    display: block;
 }
 
-.header-content {
+.profile-info h1 {
+    color: var(--rosa-escuro);
+    font-size: 2.5em;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+}
+
+.profile-info p {
+    color: var(--preto);
+    font-size: 1.1em;
+    margin: 0;
+}
+
+/* Seção dos Cards de Fotos */
+.photo-cards {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 40px;
 }
 
-.name {
-    color: var(--primary-pink);
-    font-size: 3.5em; 
-    font-weight: 700;
-    margin-bottom: 5px;
-    letter-spacing: 1px; /* Para simular o estilo da fonte */
-}
-
-.welcome-message {
-    font-size: 1.2em;
-    color: var(--text-color);
-}
-
-/* Galeria de fotos */
-.photo-gallery {
-    display: flex;
-    /* Alinha a galeria com o texto à direita do perfil */
-    justify-content: flex-start; 
-    gap: 15px;
-    margin-left: 290px; /* Empurra a galeria para a área direita */
-    margin-top: -120px; /* Move para cima para alinhar horizontalmente */
-    margin-bottom: 80px;
-}
-
-.photo-card {
+.card {
+    flex: 1;
     text-align: center;
-    width: 150px; 
-    height: auto;
-    background-color: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--rosa-escuro); /* Borda dos cards */
     border-radius: 5px;
     overflow: hidden;
-    /* Cria a borda branca grossa ao redor da foto */
-    padding: 10px;
-    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
 
-.photo-card img {
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-image {
     width: 100%;
-    height: 100px; /* Altura fixa para as miniaturas (ajuste se precisar) */
+    height: 180px; /* Altura fixa para as imagens */
     object-fit: cover;
     display: block;
 }
 
-.caption {
-    background-color: white;
-    color: var(--primary-pink);
-    font-weight: 700;
-    padding: 5px 0;
-    font-size: 0.9em;
+.card-caption {
+    background-color: var(--rosa-claro);
+    color: var(--rosa-escuro);
+    padding: 10px 5px;
+    margin: 0;
+    font-weight: bold;
+    font-size: 1em;
+    text-transform: uppercase;
 }
 
-/* Links de redes sociais */
-.social-links {
+/* Seção de Ícones de Redes Sociais */
+.social-icons {
     display: flex;
-    justify-content: flex-start;
     gap: 20px;
-    margin-left: 50px; /* Alinha os ícones abaixo do círculo de perfil */
-    margin-top: -30px; /* Move levemente para cima */
+    justify-content: flex-start;
+    padding-top: 20px;
 }
 
-.social-links a {
-    color: var(--primary-pink);
-    font-size: 2.2em;
-    background-color: white;
+.social-icons a {
+    color: var(--rosa-escuro); /* Cor do ícone */
+    font-size: 30px;
+    text-decoration: none;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-icons a:hover {
+    color: #f770aa; /* Um tom de rosa ligeiramente diferente ao passar o mouse */
+    transform: scale(1.1);
+}
+
+.social-icons i {
+    /* Estilo do fundo circular dos ícones */
+    border: 2px solid var(--rosa-escuro);
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Borda dupla para replicar o estilo do ícone na imagem */
-    border: 2px solid var(--primary-pink); 
-    padding: 5px; 
-    transition: background-color 0.3s, color 0.3s;
 }
 
-.social-links a:hover {
-    color: white;
-    background-color: var(--primary-pink);
-}
-
-/* Media Query para telas menores */
-@media (max-width: 850px) {
+/* Responsividade Básica */
+@media (max-width: 600px) {
     .profile-header {
         flex-direction: column;
-        gap: 20px;
-    }
-    
-    .profile-pic-container {
-        width: 150px;
-        height: 150px;
-        box-shadow: none; /* Remove a simulação de faixa lateral */
-    }
-
-    .name, .welcome-message {
         text-align: center;
-    }
-
-    .photo-gallery {
-        flex-direction: column;
-        align-items: center;
-        margin-left: 0;
-        margin-top: 40px;
         gap: 20px;
     }
 
-    .photo-card {
-        width: 80%;
-        max-width: 300px;
-    }
-
-    .social-links {
-        justify-content: center;
-        margin-left: 0;
-        margin-top: 40px;
+    .photo-cards {
+        flex-direction: column;
     }
 }
