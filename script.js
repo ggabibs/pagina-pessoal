@@ -12,16 +12,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Pega o ID da galeria alvo (ex: 'amigos-gallery')
             const targetId = link.getAttribute('data-target');
-            
-            // 4. Esconde todas as galerias
-            galleries.forEach(gallery => {
-                gallery.classList.remove('active');
-                gallery.classList.add('hidden');
-            });
-            
-            // 5. Mostra a galeria alvo
             const targetGallery = document.getElementById(targetId);
-            if (targetGallery) {
+
+            if (targetGallery.classList.contains('active')) {
+                // Se a galeria já está visível, ESCONDE ELA (TOGGLE/ALTERNAR)
+                targetGallery.classList.remove('active');
+                targetGallery.classList.add('hidden');
+            } else {
+                // Se a galeria não está visível, ESCONDE AS OUTRAS E MOSTRA ELA
+                
+                // Esconde todas as galerias
+                galleries.forEach(gallery => {
+                    gallery.classList.remove('active');
+                    gallery.classList.add('hidden');
+                });
+                
+                // Mostra a galeria alvo
                 targetGallery.classList.remove('hidden');
                 targetGallery.classList.add('active');
             }
