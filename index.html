@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maria Gabrielly | Perfil Pessoal</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header class="profile-header">
             <div class="profile-pic-container">
-                <img src="perfil" alt="Foto de Perfil de Maria Gabrielly" class="profile-pic" id="profile-pic">
+                <img src="profile.jpg" alt="Foto de Perfil de Maria Gabrielly" class="profile-pic" id="profile-pic">
             </div>
 
             <div class="header-content">
@@ -19,33 +18,62 @@
                 <p class="welcome-text">Bem-vindo(a) à minha página pessoal no Github!</p>
 
                 <div class="social-icons">
+                    <a href="https://www.instagram.com/SEUINSTAGRAM" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i> </a>
                     <a href="https://wa.me/SEUNUMERO" target="_blank" aria-label="WhatsApp">
                         <i class="fab fa-whatsapp"></i>
                     </a>
-                    <a href="https://www.instagram.com/SEUINSTAGRAM" target="_blank" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://open.spotify.com/user/SEUIDSPOTIFY" target="_blank" aria-label="Spotify">
+                    <a href="SEULINKDOSPOTIFY" target="_blank" aria-label="Spotify">
                         <i class="fab fa-spotify"></i>
                     </a>
                 </div>
             </div>
         </header>
 
-        <main class="image-sections">
-            <div class="image-card">
-                <img src="bff-perfil" alt="Foto com Amigos" class="card-image" id="amigos-img">
+        <main class="image-navigation">
+            <a href="#" class="image-card" data-target="amigos-gallery">
+                <img src="amigos_nav.jpg" alt="Foto com Amigos" class="card-image">
                 <p class="card-caption">Amigos</p>
-            </div>
-            <div class="image-card">
-                <img src="perfil2" alt="Foto Sobre Mim" class="card-image" id="sobremim-img">
+            </a>
+            <a href="#" class="image-card" data-target="sobremim-gallery">
+                <img src="sobremim_nav.jpg" alt="Foto Sobre Mim" class="card-image">
                 <p class="card-caption">Sobre mim</p>
-            </div>
-            <div class="image-card">
-                <img src="fml-perfil" alt="Foto com Família" class="card-image" id="familia-img">
+            </a>
+            <a href="#" class="image-card" data-target="familia-gallery">
+                <img src="familia_nav.jpg" alt="Foto com Família" class="card-image">
                 <p class="card-caption">Família</p>
-            </div>
+            </a>
         </main>
+        
+        <section id="amigos-gallery" class="gallery active">
+            <div class="gallery-content">
+                <img src="amigos_1.jpg" alt="Amigos 1" class="gallery-image">
+                <img src="amigos_2.jpg" alt="Amigos 2" class="gallery-image">
+                <img src="amigos_3.jpg" alt="Amigos 3" class="gallery-image">
+                <img src="amigos_4.jpg" alt="Amigos 4" class="gallery-image">
+                <img src="amigos_5.jpg" alt="Amigos 5" class="gallery-image">
+                <img src="amigos_6.jpg" alt="Amigos 6" class="gallery-image">
+                <img src="amigos_7.jpg" alt="Amigos 7" class="gallery-image">
+                <img src="amigos_8.jpg" alt="Amigos 8" class="gallery-image">
+                </div>
+        </section>
+
+        <section id="sobremim-gallery" class="gallery hidden">
+            <div class="about-me-text">
+                <h2 class="about-me-title">Sobre mim:</h2>
+                <p>Eu tenho 16 anos, sou estudante do 2º ano do Ensino Médio no Colégio Profº Júlio Szymansky. Sou introvertida e simpática, mas valorizo muito o tempo de qualidade com quem gosto, expressando meu afeto também através do toque físico. Meus passatempos favoritos são ler, assistir a filmes (principalmente da Marvel) e ouvir música.</p>
+            </div>
+        </section>
+
+        <section id="familia-gallery" class="gallery hidden">
+            <div class="gallery-content">
+                <img src="familia_1.jpg" alt="Família 1" class="gallery-image">
+                <img src="familia_2.jpg" alt="Família 2" class="gallery-image">
+                <img src="familia_3.jpg" alt="Família 3" class="gallery-image">
+                <img src="familia_4.jpg" alt="Família 4" class="gallery-image">
+            </div>
+        </section>
+        
     </div>
 
     <script src="script.js"></script>
